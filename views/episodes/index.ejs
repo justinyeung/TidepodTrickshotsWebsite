@@ -1,0 +1,24 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <h1>All Episodes</h1>
+</div>
+
+
+<!-- outputs the episodes that were passed in from /episodes -->
+<% episodes.forEach(function(episode){ %>
+    <div class="container border border-dark">
+        <div class="row episode-row">
+            <h2><%= episode.name %></h2>
+            <a class="btn btn-dark" href="/episodes/<%= episode._id %>">View Episode</a>
+            <a href="http://google.ca">Link</a>
+        </div>
+        
+        
+        
+    </div>
+    
+    <% }); %>
+    
+    
+    <% include ../partials/footer %>

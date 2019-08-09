@@ -1,0 +1,59 @@
+/* landing page image */
+#landing-img{
+  width: 100%;
+}
+#landing-container{
+  /* width: 100%; */
+  padding: 0;
+}
+
+
+
+/* navbar */
+.navbar{
+  margin-top: 0;
+  box-shadow: 0 0 50px 20px rgba(0,0,0,.3);
+  width:100%;
+}
+.navbar-brand{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+}
+.nav-item{
+  padding-left:10px;
+  padding-right:10px;
+  font-size: 1.2rem;
+}
+.nav-item:hover{
+  color: black;
+  display: block;
+}
+
+/* episodes page */
+.episode-row{
+  padding: 5rem 5rem;
+}
+
+/* login page */
+.login{
+  padding:3rem;
+  margin-top: 5rem;
+  box-shadow: 0 0 50px 20px rgba(0,0,0,.3);
+  font-family: 'Open Sans', sans-serif;
+  font-weight:700;
+}
+.info-section{
+  padding:2rem;
+}
+.submit-button{
+  margin-top:10rem;
+  border:solid black 1px;
+}
+.login-text{
+  font-family: 'Open Sans', sans-serif;
+  font-weight:bold;
+}
+.white{
+  background-color:white;
+}
+

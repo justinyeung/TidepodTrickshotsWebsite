@@ -1,0 +1,11 @@
+<% include ../partials/header %>
+
+<h1>Bloopers page</h1>
+
+<% bloopers.forEach(function(blooper){ %>
+    <p><%= blooper.name %></p>
+    <p><%= blooper._id %></p>
+    <a href="/bloopers/<%= blooper._id %>">View Blooper</a>
+<% }); %>
+
+<% include ../partials/footer %>

@@ -1,0 +1,11 @@
+<% include ../partials/header %>
+
+<h1>vlogs page</h1>
+
+<% vlogs.forEach(function(vlog){ %>
+    <p><%= vlog.name %></p>
+    <p><%= vlog._id %></p>
+    <a href="/vlogs/<%=vlog._id%>">Watch vlog</a>
+<% }); %>
+
+<% include ../partials/footer %>
