@@ -16,7 +16,23 @@ var data = [
         name: "Connect 4",
         season: 1,
         number: 2,
-        description: "Craziest Episode yet!!",
+        description: "4 washing machines, 4 shots, 4 buckets",
+        uploaded: today
+    },
+    {
+        videoType: "episode",
+        name: "New Home",
+        season: 2,
+        number: 1,
+        description: "Welcome back to a new season!",
+        uploaded: today
+    },
+    {
+        videoType: "episode",
+        name: "Back to LP",
+        season: 2,
+        number: 2,
+        description: "The ultimate throwback !!",
         uploaded: today
     },
     {

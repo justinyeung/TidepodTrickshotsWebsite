@@ -1,6 +1,7 @@
 <% include ../partials/header %>
 <% const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]; %>
 
+
 <div class="container" id="margin-jumbotron"></div>
 <div class="container" id="jumbotron-container">
     <div class="jumbotron">
@@ -10,27 +11,76 @@
     </div>
 </div>
 
-
-<!-- outputs the episodes that were passed in from /episodes -->
-<% episodes.forEach(function(episode){ %>
-    <div class="container">
-        <a class="episode-link" href="/episodes/<%= episode._id %>">
-            <div class="row episode-row">
-                <div class="col-12 col-lg-4 image-box">
-                    <img src="https://cdn.wallpapersafari.com/76/19/oTkiJr.jpg" alt="">
-                </div>
-                <div class="col-12 col-lg-8 description">
-                    <h2><%= episode.name %></h2>
-                    <% const year = episode.uploaded.getYear() + 1900 %>
+<div class="container">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="season1-tab" data-toggle="tab" href="#season1" aria-controls="season1" aria-selected="true">
+                Season 1
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="season2-tab" data-toggle="tab" href="#season2" aria-controls="season2" aria-selected="false">
+                Season 2
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="season1" role="tabpanel" aria-labelledby="season1-tab">
+            <!-- Season 1 tab -->
+            <% episodes.forEach(function(episode){ %>
+                <% if(episode.season === 1){ %>
+                    <div class="container">
+                        <a class="episode-link" href="/episodes/<%= episode._id %>">
+                            <div class="row episode-row">
+                                <div class="col-12 col-lg-4 image-box">
+                                    <img src="https://cdn.wallpapersafari.com/76/19/oTkiJr.jpg" alt="">
+                                </div>
+                                <div class="col-12 col-lg-8 description">
+                                    <h2><%= episode.name %></h2>
+                                    <% const year = episode.uploaded.getYear() + 1900 %>
+                                    
+                                    <p>Season <%= episode.season %>, Episode <%= episode.number %></p>
+                                    <p><%= months[episode.uploaded.getMonth()] %> <%= episode.uploaded.getDate() %>,  <%= year %></p>
+                                    <p><%= episode.description %></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <% } %>
+                
+                <% }); %>
+            </div>
+            <div class="tab-pane fade" id="season2" role="tabpanel" aria-labelledby="season2-tab">
+                <!-- Season 2 tab -->
+                <% episodes.forEach(function(episode){ %>
+                    <% if(episode.season === 2){ %>
+                        <div class="container">
+                            <a class="episode-link" href="/episodes/<%= episode._id %>">
+                                <div class="row episode-row">
+                                    <div class="col-12 col-lg-4 image-box">
+                                        <img src="https://cdn.wallpapersafari.com/76/19/oTkiJr.jpg" alt="">
+                                    </div>
+                                    <div class="col-12 col-lg-8 description">
+                                        <h2><%= episode.name %></h2>
+                                        <% const year = episode.uploaded.getYear() + 1900 %>
+                                        
+                                        <p>Season <%= episode.season %>, Episode <%= episode.number %></p>
+                                        <p><%= months[episode.uploaded.getMonth()] %> <%= episode.uploaded.getDate() %>,  <%= year %></p>
+                                        <p><%= episode.description %></p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    <% } %>
                     
-                    <p>Season <%= episode.season %>, Episode <%= episode.number %></p>
-                    <p><%= months[episode.uploaded.getMonth()] %> <%= episode.uploaded.getDate() %>,  <%= year %></p>
-                    <p><%= episode.description %></p>
+                    <% }); %>
                 </div>
             </div>
-        </a>
-    </div>
-    <% }); %>
-    
-    
-    <% include ../partials/footer %>
+        </div>
+        
+        
+        <!-- outputs the episodes that were passed in from /episodes -->
+        
+        
+        
+        <% include ../partials/footer %>
