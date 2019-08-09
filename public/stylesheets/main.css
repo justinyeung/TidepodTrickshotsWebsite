@@ -7,8 +7,14 @@
   padding: 0;
 }
 
-
-
+/* video pages */
+#jumbotron-container{
+  padding-left:0;
+  padding-right:0;
+}
+#margin-jumbotron{
+  height:100px;
+}
 /* navbar */
 .navbar{
   margin-top: 0;
@@ -29,9 +35,35 @@
   display: block;
 }
 
+
 /* episodes page */
 .episode-row{
-  padding: 5rem 5rem;
+  padding: 2rem 2rem;
+}
+.description{
+  border:0;
+  padding:1rem 1rem 1rem 2rem;
+  font-family: 'Open Sans', sans-serif;
+}
+.description h2{
+  margin-bottom:0.5rem;
+  font-weight:bold;
+}
+.description p{
+  margin:0.2rem;
+}
+img{
+  width:100%;
+  padding:0;
+}
+.image-box{
+  padding:0;
+}
+.episode-link{
+  color: black;
+}
+.episode-link:hover{
+  color:black;
 }
 
 /* login page */

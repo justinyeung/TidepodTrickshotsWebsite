@@ -1,23 +1,35 @@
 <% include ../partials/header %>
+<% const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]; %>
 
-<div class="container">
-    <h1>All Episodes</h1>
+<div class="container" id="margin-jumbotron"></div>
+<div class="container" id="jumbotron-container">
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Full Episodes</h1>
+        </div>
+    </div>
 </div>
 
 
 <!-- outputs the episodes that were passed in from /episodes -->
 <% episodes.forEach(function(episode){ %>
-    <div class="container border border-dark">
-        <div class="row episode-row">
-            <h2><%= episode.name %></h2>
-            <a class="btn btn-dark" href="/episodes/<%= episode._id %>">View Episode</a>
-            <a href="http://google.ca">Link</a>
-        </div>
-        
-        
-        
+    <div class="container">
+        <a class="episode-link" href="/episodes/<%= episode._id %>">
+            <div class="row episode-row">
+                <div class="col-12 col-lg-4 image-box">
+                    <img src="https://cdn.wallpapersafari.com/76/19/oTkiJr.jpg" alt="">
+                </div>
+                <div class="col-12 col-lg-8 description">
+                    <h2><%= episode.name %></h2>
+                    <% const year = episode.uploaded.getYear() + 1900 %>
+                    
+                    <p>Season <%= episode.season %>, Episode <%= episode.number %></p>
+                    <p><%= months[episode.uploaded.getMonth()] %> <%= episode.uploaded.getDate() %>,  <%= year %></p>
+                    <p><%= episode.description %></p>
+                </div>
+            </div>
+        </a>
     </div>
-    
     <% }); %>
     
     

@@ -3,10 +3,12 @@ var mongoose = require("mongoose");
 // video schema setup
 var videoSchema = new mongoose.Schema({
     videoType: String,
-    name: String//,
+    name: String,
+    season: Number,
+    number: Number,
     // url: String,
-    // description: String,
-    // uploaded: String,
+    description: String,
+    uploaded: Object//,
     // views: Number
 });
 

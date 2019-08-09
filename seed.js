@@ -1,22 +1,39 @@
 var mongoose = require("mongoose"),
 Episode = require("./models/video");
+var today = new Date();
 
 var data = [
     {
         videoType: "episode",
-        name: "Episode 1"
+        name: "Pilot",
+        season: 1,
+        number: 1,
+        description: "I have no idea how long these descriptions should be for them to be realistic",
+        uploaded: today
     },
     {
         videoType: "episode",
-        name: "Episode 2"
+        name: "Connect 4",
+        season: 1,
+        number: 2,
+        description: "Craziest Episode yet!!",
+        uploaded: today
     },
     {
         videoType: "blooper",
-        name: "Blooper 1"
+        name: "Blooper 1",
+        season: 1,
+        number: 1,
+        description: "This is the description",
+        uploaded: today
     },
     {
         videoType: "vlog",
-        name: "Vlog 1"
+        name: "Vlog 1",
+        season: 1,
+        number: 1,
+        description: "This is the description",
+        uploaded: today
     }
 ];
 
