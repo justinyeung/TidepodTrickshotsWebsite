@@ -1,5 +1,7 @@
 var mongoose = require("mongoose"),
-Episode = require("./models/video");
+Video = require("./models/video"),
+Blooper = require("./models/blooper");
+
 var today = new Date();
 
 var data = [
@@ -45,25 +47,48 @@ var data = [
     },
     {
         videoType: "vlog",
-        name: "Vlog 1",
+        name: "Walmart Adventures",
         season: 1,
         number: 1,
-        description: "This is the description",
+        description: "We go to walmart to hunt for the best lotion in town",
+        uploaded: today
+    },
+    {
+        videoType: "vlog",
+        name: "Hwy 407 Terminal Fan Meetup",
+        season: 1,
+        number: 2,
+        description: "Our very first of many fan meetups!",
         uploaded: today
     }
 ];
 
 //deletes all existing data and inputs sample data above
 function seedDB(){
-    Episode.deleteMany({}, function(err){
+    Video.deleteMany({}, function(err){
         if(err){
             console.log(err);
         }
         data.forEach(function(seed){
-            Episode.create(seed, function(err, episode){
+            Video.create(seed, function(err, video){
                 // console.log(episode);
                 if(err){
                     console.log(err);
+                }else{
+                    Blooper.create(
+                        {
+                            videoType: "Blooper",
+                            name: "Blooper 1",
+                            description: "blooper funny"
+                        }, function(err, blooper){
+                            if(err){
+                                console.log(err);
+                            }else{
+                                video.bloopers.push(blooper);
+                                video.save();
+                            }
+                        }
+                    )
                 }
                 
             })
