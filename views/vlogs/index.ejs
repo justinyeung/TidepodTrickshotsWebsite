@@ -1,11 +1,40 @@
 <% include ../partials/header %>
+<% const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]; %>
 
-<h1>vlogs page</h1>
+<!-- container for margin (so it doesn't mess up #content) -->
+<div class="container" id="margin-jumbotron"></div>
+<div class="container" id="jumbotron-container">
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Vlogs</h1>
+        </div>
+    </div>
+</div>
 
+<!-- loops through vlogs that were passed through tot his file -->
 <% vlogs.forEach(function(vlog){ %>
-    <p><%= vlog.name %></p>
-    <p><%= vlog._id %></p>
-    <a href="/vlogs/<%=vlog._id%>">Watch vlog</a>
-<% }); %>
-
-<% include ../partials/footer %>
+    <div class="container">
+        <div class="container">
+            <a class="episode-link" href="/vlogs/<%= vlog._id %>">
+                <div class="row episode-row">
+                    <!-- thumbnail -->
+                    <div class="col-12 col-lg-4 image-box">
+                        <img src="https://cdn.wallpapersafari.com/76/19/oTkiJr.jpg" alt="">
+                    </div>
+                    <!-- description -->
+                    <div class="col-12 col-lg-8 description">
+                        <h2><%= vlog.name %></h2>
+                        <% const year = vlog.uploaded.getYear() + 1900 %>
+                        
+                        <p>Vlog <%= vlog.number %></p>
+                        <p><%= months[vlog.uploaded.getMonth()] %> <%= vlog.uploaded.getDate() %>,  <%= year %></p>
+                        <p><%= vlog.description %></p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <% }); %>
+    
+    <% include ../partials/footer %>
