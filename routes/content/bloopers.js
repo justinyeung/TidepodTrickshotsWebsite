@@ -1,15 +1,35 @@
 var express = require("express"),
 router = express.Router(),
-Blooper = require("../../models/video");
+Episode = require("../../models/video");
 
-// index route
+var arr = new Array();
+var episodes = new Array();
+var blooperCount = Number;
+
 router.get("/bloopers", function(req, res){
-    Blooper.find({videoType: "blooper"}, function(err, allBloopers){
+    blooperCount = 0;
+
+    // find all episodes
+    Episode.find({videoType: "episode"}, function(err, allEpisodes){
         if(err){
             console.log(err);
         }else{
-            res.render("../views/bloopers/index.ejs", {bloopers: allBloopers});
-        }
+            allEpisodes.forEach(function(episode){
+                // populate episodes with bloopers, for all episodes
+                Episode.findById(episode._id).populate("bloopers").exec(function(err, specificBlooper){
+                    // push bloopers in to an array
+                    arr.push(specificBlooper);
+                    blooperCount++;
+                });
+            });
+            // if bloopers don't all load, refresh page
+            if(arr.length <= blooperCount){
+                console.log("redirect");
+                res.redirect("/bloopers");
+            }else{
+                res.render("../views/bloopers/index.ejs", {episodes: arr});
+            }
+        };
     });
 });
 
