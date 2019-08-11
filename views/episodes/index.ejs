@@ -32,12 +32,12 @@
             <!-- Loops through episodes passed through to this file -->
             <% episodes.forEach(function(episode){ %>
                 <% if(episode.season === 1){ %>
-                    <div class="container">
+                    <div class="container episode-container">
                         <a class="episode-link" href="/episodes/<%= episode._id %>">
                             <div class="row episode-row">
                                 <!-- thumbnail -->
                                 <div class="col-12 col-lg-4 image-box">
-                                    <img src="https://cdn.wallpapersafari.com/76/19/oTkiJr.jpg" alt="">
+                                    <img class="thumbnail-initial" src="<%= episode.thumbnail %>">
                                 </div>
                                 <div class="col-12 col-lg-8 description">
                                     <!-- description -->
@@ -59,12 +59,12 @@
                     <!-- Season 2 tab -->
                     <% episodes.forEach(function(episode){ %>
                         <% if(episode.season === 2){ %>
-                            <div class="container">
+                            <div class="container episode-container">
                                 <a class="episode-link" href="/episodes/<%= episode._id %>">
                                     <div class="row episode-row">
                                         <!-- thumbnail -->
                                         <div class="col-12 col-lg-4 image-box">
-                                            <img src="https://cdn.wallpapersafari.com/76/19/oTkiJr.jpg" alt="">
+                                            <img src="<%= episode.thumbnail %>" alt="">
                                         </div>
                                         <div class="col-12 col-lg-8 description">
                                             <!-- description -->

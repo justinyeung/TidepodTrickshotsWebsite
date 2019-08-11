@@ -3,7 +3,6 @@
   width: 100%;
 }
 #landing-container{
-  /* width: 100%; */
   padding: 0;
 }
 
@@ -14,6 +13,19 @@
 }
 #margin-jumbotron{
   height:100px;
+}
+/* hover over episode */
+.episode-container{
+  border: 1px solid white;
+}
+.episode-container:hover{
+  border: 1px solid black;
+}
+
+/* show pages */
+#video-container{
+  height: 50vh;
+  padding:0;
 }
 /* navbar */
 .navbar{
