@@ -1,3 +1,8 @@
+/* let elements not be under navbar */
+#margin-jumbotron{
+  height:60px;
+}
+
 /* landing page image */
 #landing-img{
   width: 100%;
@@ -10,9 +15,6 @@
 #jumbotron-container{
   padding-left:0;
   padding-right:0;
-}
-#margin-jumbotron{
-  height:100px;
 }
 /* hover over episode */
 .episode-container{
@@ -64,7 +66,7 @@
 .description p{
   margin:0.2rem;
 }
-img{
+.image-box img{
   width:100%;
   padding:0;
 }
