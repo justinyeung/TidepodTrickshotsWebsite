@@ -1,8 +1,36 @@
 <% include ./partials/header%>
 
+<div id="margin-jumbotron"></div>
+
 <div id="landing-container" class="container-fluid">
-    <img id="landing-img" class="img-responsive" src="https://www.stantec.com/content/dam/stantec/images/projects/0037/mcmaster-university-les-prince-hall-002.jpg">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item item-1 active">
+                <!-- <img id="carousel-img" class="d-block w-100" src="https://i1.wp.com/ese224.seas.upenn.edu/wp-content/uploads/2018/11/background-website-light-blue-wallpapers-background-2.jpg?ssl=1" alt="First slide"> -->
+            </div>
+            <div class="carousel-item item-2">
+                <!-- <img id="carousel-img" class="d-block w-100" src="https://i1.wp.com/ese224.seas.upenn.edu/wp-content/uploads/2018/11/background-website-light-blue-wallpapers-background-2.jpg?ssl=1" alt="Second slide"> -->
+            </div>
+            <div class="carousel-item item-3">
+                <!-- <img id="carousel-img" class="d-block w-100" src="https://i1.wp.com/ese224.seas.upenn.edu/wp-content/uploads/2018/11/background-website-light-blue-wallpapers-background-2.jpg?ssl=1" alt="Third slide"> -->
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
 </div>
+
 <!-- items -->
 <div class="container border border-dark">
     <div class="row">

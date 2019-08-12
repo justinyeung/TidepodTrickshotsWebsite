@@ -1,18 +1,37 @@
-/* landing page image */
-#landing-img{
-  width: 100%;
+/* let elements not be under navbar */
+#margin-jumbotron{
+  height:60px;
 }
+
+/* landing page image */
 #landing-container{
   padding: 0;
+  height:50vh;
 }
+.carousel-item{
+  height:50vh;
+}
+.item-1{
+  background: #16222A;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #16222A, #3A6073);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #16222A, #3A6073); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.item-2{
+  background: #3a7bd5;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #3a6073, #3a7bd5);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #3a6073, #3a7bd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.item-3{
+  background: #159957;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #155799, #159957);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #3a7bd5, #159957); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 
 /* video pages */
 #jumbotron-container{
   padding-left:0;
   padding-right:0;
-}
-#margin-jumbotron{
-  height:100px;
 }
 /* hover over episode */
 .episode-container{
@@ -64,7 +83,7 @@
 .description p{
   margin:0.2rem;
 }
-img{
+.image-box img{
   width:100%;
   padding:0;
 }
