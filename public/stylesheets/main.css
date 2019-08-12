@@ -22,11 +22,9 @@
   border: 1px solid black;
 }
 
-/* show pages */
-#video-container{
-  height: 50vh;
-  padding:0;
-}
+
+
+
 /* navbar */
 .navbar{
   margin-top: 0;

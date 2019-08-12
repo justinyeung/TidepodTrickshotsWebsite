@@ -1,15 +1,42 @@
 <% include ../partials/header %>
+<% const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]; %>
 
 <div class="container" id="margin-jumbotron"></div>
 
 <!-- watch the specific episode -->
-<div id="video-container" class="container border border-dark">
-    <iframe width=100% height=100% src="https://www.youtube.com/embed/u21W_tfPVrY?modestbranding=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="container">
+    <div class="row">
+        <div class="container col-12 col-md-10 ">
+            <div class="row embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/u21W_tfPVrY?modestbranding=1"></iframe>
+            </div>
+            <div class="row">
+                <div class="container">
+                    <% const year = episode.uploaded.getYear() + 1900 %>
+                    
+                    <h1><%= episode.name %></h1>
+                    <p>Season <%= episode.season %>, Episode <%= episode.number %></p>
+                    <p><%= months[episode.uploaded.getMonth()] %> <%= episode.uploaded.getDate() %>,  <%= year %></p>
+                    <p><%= episode.description %></p>
+                </div>
+                
+            </div>
+        </div>
+        <div class="container col-12 col-md-2 border border-dark">
+            <p>Watch Next:</p>
+        </div>
+        
+    </div>
+    <!-- <div class="row">
+        <div class="container col-11 col-md-10 col-lg-8 border border-dark">
+            <h1><%= episode.name %></h1>
+            <p>Season <%= episode.season %>, Episode <%=episode.number %></p>
+            <p><%= episode.uploaded %></p>
+        </div>
+    </div> -->
+    
 </div>
-<div class="container border border-dark">
-    <h1><%= episode.name %></h1>
-    <p>Season <%= episode.season %>, Episode <%=episode.number %></p>
-</div>
+
 
 <!-- blooper attached to this video -->
 <!-- <% episode.bloopers.forEach(function(blooper){ %>
