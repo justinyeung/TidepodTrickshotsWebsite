@@ -1,12 +1,12 @@
 var express = require("express"),
 router = express.Router(),
 //requires the video schema for episode
-Episode = require("../../models/video");
+Video = require("../../models/video");
 
 // index route (shows all the episodes)
 router.get("/episodes", function(req, res){
     //queries database for only episodes
-    Episode.find({videoType: "episode"}, function(err, allEpisodes){
+    Video.find({videoType: "episode"}, function(err, allEpisodes){
         if(err){
             console.log(err);
         }else{
@@ -20,7 +20,7 @@ router.get("/episodes", function(req, res){
 // show route (watch the episode)
 router.get("/episodes/:id", function(req, res){
     // Find episode and blooper for episode with id
-    Episode.findById(req.params.id).populate("bloopers").exec(function(err, specificEpisode){
+    Video.findById(req.params.id).populate("bloopers").exec(function(err, specificEpisode){
         if(err){
             console.log(err);
         }else{
@@ -32,10 +32,28 @@ router.get("/episodes/:id", function(req, res){
 // new route - form to add new video
 router.get("/new", function(req, res){
     res.render("../views/new.ejs");
-})
+});
+
 // create route - post a new video
 router.post("/videos", function(req, res){
-    res.send("adsf");
-    console.log("Posted");
-})
+    var video = req.body.video;
+    var newVideo = {
+        videoType: video.videotype,
+        name: video.name,
+        season: video.seasonnum,
+        number: video.episodenum,
+        thumbnail: video.thumbnail,
+        description: video.description
+    }
+    
+    Video.create(newVideo, function(err, newlyCreated){
+        if(err){
+            console.log(err);
+        }else{
+            // go to page with all episodes
+            res.redirect("/episodes");
+        }
+    })
+});
+
 module.exports = router;
