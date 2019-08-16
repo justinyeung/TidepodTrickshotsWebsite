@@ -35,7 +35,7 @@ router.get("/new", function(req, res){
 });
 
 // create route - post a new video
-router.post("/videos", function(req, res){
+router.post("/videos", isLoggedIn, function(req, res){
     var video = req.body.video;
     var newVideo = {
         videoType: video.videotype,
@@ -55,5 +55,14 @@ router.post("/videos", function(req, res){
         }
     })
 });
+
+//middleware
+//add this to parameters if login is required for that route
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect("/login");
+}
 
 module.exports = router;

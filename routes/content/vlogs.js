@@ -3,7 +3,7 @@ router = express.Router(),
 Vlog = require("../../models/video.js");
 
 // index route
-app.get("/vlogs", function(req, res){
+router.get("/vlogs", function(req, res){
     Vlog.find({videoType: "vlog"}, function(err, allVlogs){
         if(err){
             console.log(err);
@@ -14,7 +14,7 @@ app.get("/vlogs", function(req, res){
 });
 
 // show route
-app.get("/vlogs/:id", function(req, res){
+router.get("/vlogs/:id", function(req, res){
     Vlog.findById(req.params.id, function(err, specificVlog){
         if(err){
             console.log(err);
