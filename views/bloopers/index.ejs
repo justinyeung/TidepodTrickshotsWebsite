@@ -1,11 +1,41 @@
 <% include ../partials/header %>
+<% const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]; %>
 
-<h1>Bloopers page</h1>
+<!-- container for margin (so it doesn't mess up #content) -->
+<div class="container" id="margin-jumbotron"></div>
+<div class="container" id="jumbotron-container">
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Bloopers</h1>
+        </div>
+    </div>
+</div>
+
 
 <% bloopers.forEach(function(blooper){ %>
-    <p><%= blooper.name %></p>
-    <p><%= blooper._id %></p>
-    <a href="/bloopers/<%= blooper._id %>">View Blooper</a>
-<% }); %>
-
-<% include ../partials/footer %>
+    <div class="container">
+        <div class="container">
+            <a class="episode-link" href="/vlogs/<%= blooper._id %>">
+                <div class="row episode-row">
+                    <!-- thumbnail -->
+                    <div class="col-12 col-lg-4 image-box">
+                        <img src="https://cdn.wallpapersafari.com/76/19/oTkiJr.jpg" alt="">
+                    </div>
+                    <!-- description -->
+                    <div class="col-12 col-lg-8 description">
+                        <% const year = blooper.uploaded.getYear() + 1900 %>
+                        
+                        <p>From Season <%= blooper.season %>, Episode <%= blooper.number %></p>
+                        <p><%= months[blooper.uploaded.getMonth()] %> <%= blooper.uploaded.getDate() %>,  <%= year %></p>
+                        
+                        <p> <%= blooper.videoType %> </p>
+                        <p> <%= blooper.name %> </p>
+                        <p> <%= blooper.description %> </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <% }); %>
+    
+    <% include ../partials/footer %>
