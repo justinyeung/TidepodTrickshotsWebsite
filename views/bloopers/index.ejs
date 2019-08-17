@@ -12,10 +12,10 @@
 </div>
 
 
-<% episodes.forEach(function(episode){ %>
+<% bloopers.forEach(function(blooper){ %>
     <div class="container">
         <div class="container">
-            <a class="episode-link" href="/vlogs/<%= episode._id %>">
+            <a class="episode-link" href="/vlogs/<%= blooper._id %>">
                 <div class="row episode-row">
                     <!-- thumbnail -->
                     <div class="col-12 col-lg-4 image-box">
@@ -23,21 +23,19 @@
                     </div>
                     <!-- description -->
                     <div class="col-12 col-lg-8 description">
-                        <% const year = episode.uploaded.getYear() + 1900 %>
+                        <% const year = blooper.uploaded.getYear() + 1900 %>
                         
-                        <p>From Season <%= episode.season %>, Episode <%= episode.number %></p>
-                        <p><%= months[episode.uploaded.getMonth()] %> <%= episode.uploaded.getDate() %>,  <%= year %></p>
+                        <p>From Season <%= blooper.season %>, Episode <%= blooper.number %></p>
+                        <p><%= months[blooper.uploaded.getMonth()] %> <%= blooper.uploaded.getDate() %>,  <%= year %></p>
                         
-                        <% episode.bloopers.forEach(function(blooper){ %>
-                            <p> <%= blooper.videoType %> </p>
-                            <p> <%= blooper.name %> </p>
-                            <p> <%= blooper.description %> </p>
-                        <% }) %>
-                        </div>
+                        <p> <%= blooper.videoType %> </p>
+                        <p> <%= blooper.name %> </p>
+                        <p> <%= blooper.description %> </p>
                     </div>
-                </a>
-            </div>
+                </div>
+            </a>
         </div>
-        <% }); %>
-        
-        <% include ../partials/footer %>
+    </div>
+    <% }); %>
+    
+    <% include ../partials/footer %>
