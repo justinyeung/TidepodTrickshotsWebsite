@@ -13,28 +13,25 @@
 
 
 <% bloopers.forEach(function(blooper){ %>
-    <div class="container">
-        <div class="container">
-            <a class="episode-link" href="/vlogs/<%= blooper._id %>">
-                <div class="row episode-row">
-                    <!-- thumbnail -->
-                    <div class="col-12 col-lg-4 image-box">
-                        <img src="https://cdn.wallpapersafari.com/76/19/oTkiJr.jpg" alt="">
-                    </div>
-                    <!-- description -->
-                    <div class="col-12 col-lg-8 description">
-                        <% const year = blooper.uploaded.getYear() + 1900 %>
-                        
-                        <p>From Season <%= blooper.season %>, Episode <%= blooper.number %></p>
-                        <p><%= months[blooper.uploaded.getMonth()] %> <%= blooper.uploaded.getDate() %>,  <%= year %></p>
-                        
-                        <p> <%= blooper.videoType %> </p>
-                        <p> <%= blooper.name %> </p>
-                        <p> <%= blooper.description %> </p>
-                    </div>
+    <div class="container episode-container">
+        <a class="episode-link" href="/vlogs/<%= blooper._id %>">
+            <div class="row episode-row">
+                <!-- thumbnail -->
+                <div class="col-12 col-lg-4 image-box">
+                    <img src="https://cdn.wallpapersafari.com/76/19/oTkiJr.jpg" alt="">
                 </div>
-            </a>
-        </div>
+                <!-- description -->
+                <div class="col-12 col-lg-8 description">
+                    <% const year = blooper.uploaded.getYear() + 1900 %>
+                    <h2> <%= blooper.name %> </h2>
+                    <p>From Season <%= blooper.season %>, Episode <%= blooper.number %></p>
+                    <p><%= months[blooper.uploaded.getMonth()] %> <%= blooper.uploaded.getDate() %>,  <%= year %></p>
+                    
+                    <p> <%= blooper.videoType %> </p>
+                    <p> <%= blooper.description %> </p>
+                </div>
+            </div>
+        </a>
     </div>
     <% }); %>
     
