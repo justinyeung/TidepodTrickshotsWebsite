@@ -1,8 +1,48 @@
 <% include ./partials/header%>
 
+<div id="margin-jumbotron"></div>
+
 <div id="landing-container" class="container-fluid">
-    <img id="landing-img" class="img-responsive" src="https://www.stantec.com/content/dam/stantec/images/projects/0037/mcmaster-university-les-prince-hall-002.jpg">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item item-1 active border">
+                <div class="container-fluid">
+                    <h1 class="align-middle">Tidepod Trickshots</h1>
+                    <h2>New Episodes every Laundry Day</h2>
+                    <a href="/episodes" class="btn btn-light btn-lg active" role="button" aria-pressed="true">Watch Now</a>
+                </div>
+            </div>
+            <div class="carousel-item item-2 border">
+                <div class="container-fluid">
+                    <h1>Bloopers & Behind the Scenes</h1>
+                    <h2>Watch Exclusively on our Website</h2>
+                    <a href="/episodes" class="btn btn-light btn-lg active" role="button" aria-pressed="true">Watch Now</a>
+                </div>
+            </div>
+            <div class="carousel-item item-3 border">
+                <div class="container-fluid">
+                    <h1>Subscribe Today</h1>
+                    <h2>Get Notified every time a Video is Posted</h2>
+                    <a href="/episodes" class="btn btn-light btn-lg active" role="button" aria-pressed="true">Sign Up</a>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
 </div>
+
 <!-- items -->
 <div class="container border border-dark">
     <div class="row">
