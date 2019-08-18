@@ -1,6 +1,5 @@
 var mongoose = require("mongoose"),
-Video = require("./models/video"),
-Blooper = require("./models/blooper");
+Video = require("./models/video");
 
 var today = new Date();
 
@@ -75,20 +74,7 @@ function seedDB(){
                 if(err){
                     console.log(err);
                 }else{
-                    Blooper.create(
-                        {
-                            videoType: "Blooper",
-                            name: "Blooper 1",
-                            description: "blooper funny"
-                        }, function(err, blooper){
-                            if(err){
-                                console.log(err);
-                            }else{
-                                video.bloopers.push(blooper);
-                                video.save();
-                            }
-                        }
-                    )
+                    video.save();
                 }
                 
             })
