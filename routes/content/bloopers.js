@@ -1,4 +1,3 @@
-// module.exports = router;
 var express = require("express"),
 router = express.Router(),
 //requires the video schema for episode
@@ -25,7 +24,7 @@ router.get("/bloopers/:id", function(req, res){
         if(err){
             console.log(err);
         }else{
-            res.render("../views/bloopers/show.ejs", {blooper: specificBlooper});
+            res.render("../views/bloopers/shows.ejs", {blooper: specificBlooper});
         }
     });
 });
