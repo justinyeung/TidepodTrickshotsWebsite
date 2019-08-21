@@ -24,7 +24,7 @@ router.get("/bloopers/:id", function(req, res){
         if(err){
             console.log(err);
         }else{
-            res.render("../views/bloopers/shows.ejs", {blooper: specificBlooper});
+            res.render("../views/bloopers/show.ejs", {blooper: specificBlooper});
         }
     });
 });
