@@ -21,15 +21,15 @@
 }
 #landing-container{
   padding: 0;
-  height:50vh;
+  height:400px;
 }
 .carousel-inner{
-  height:50vh;
+  height:400px;
   text-align: center;
   color:white;
 }
 .carousel-item{
-  height:50vh;
+  height:400px;
 }
 .carousel-item h1{
   font-family: 'Lato', sans-serif;
@@ -107,8 +107,8 @@
   width:100%;
 }
 .navbar-brand{
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 800;
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
 }
 .nav-item{
   padding-left:10px;
