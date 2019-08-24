@@ -24,6 +24,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // connect to mongoose database
 var url = process.env.DATABASEURL || "mongodb://localhost:27017/tidepodtrickshots"
+console.log(url);
 mongoose.connect(url, {useNewUrlParser: true});
 
 //connect the stylesheet
