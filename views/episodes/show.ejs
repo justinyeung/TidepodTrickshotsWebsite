@@ -1,16 +1,29 @@
 <% include ../partials/header %>
+<% const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]; %>
+
+<div class="container" id="margin-jumbotron"></div>
 
 <!-- watch the specific episode -->
-<br><br><br>
-<h1>Show specific episodes</h1>
-<p><%= episode.name %></p>
-<p><%= episode._id %></p>
-
-<!-- blooper attached to this video -->
-<% episode.bloopers.forEach(function(blooper){ %>
-    <p> <%= blooper.videoType %> </p>
-    <p> <%= blooper.name %> </p>
-    <p> <%= blooper.description %> </p>
-<% }) %>
-
-<% include ../partials/footer %>
+<div class="container border border-darl">
+    <div class="row">
+        <div class="video-container container col-12 col-md-10 col-lg-5">
+            <div class="embed-responsive embed-responsive-9by16">
+                <iframe src="https://player.vimeo.com/video/354575981" width="640" height="480" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/u21W_tfPVrY?modestbranding=1"></iframe> -->
+                <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/watch?v=I61R1e-xmow?modestbranding=1"></iframe> -->
+            </div>
+        </div>
+        <div class="container col-12 col-md-10 col-lg-7">
+            <div class="container show-description">
+                <% const year = episode.uploaded.getYear() + 1900 %>
+                
+                <h1><%= episode.name %></h1>
+                <p id="description-info">Season <%= episode.season %>, Episode <%= episode.number %></p>
+                <p id="description-info"><%= months[episode.uploaded.getMonth()] %> <%= episode.uploaded.getDate() %>,  <%= year %></p>
+                <p id="description-text"><%= episode.description %></p>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>

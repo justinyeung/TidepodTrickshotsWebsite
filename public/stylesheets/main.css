@@ -87,19 +87,40 @@
   padding-left:0;
   padding-right:0;
 }
-/* hover over episode */
+#margin-jumbotron{
+  height:60px;
+}
 .episode-container{
   border: 1px solid white;
 }
 .episode-container:hover{
-  border: 1px solid black;
+  background-color: #e9ecef;
 }
 
-/* show pages */
-#video-container{
-  height: 50vh;
-  padding:0;
+/* show page */
+.embed-responsive-9by16 {
+  padding-bottom: 178%;
 }
+.video-container{
+  padding-top:3rem;
+}
+.show-description{
+  font-family: 'Nunito Sans', sans-serif;
+  padding-top:3rem;
+}
+.show-description h1{
+  font-weight:900;
+  font-size:5rem;
+  margin-bottom:0.5rem;
+}
+#description-info{
+  margin-bottom:0.5rem;
+}
+#description-text{
+  font-size:1.5rem;
+  margin-top:2rem;
+}
+
 /* navbar */
 .navbar{
   margin-top: 0;

@@ -13,12 +13,6 @@ var videoSchema = new mongoose.Schema({
     description: {type: String, default: "New Episode out today!"},
     uploaded: {type: Object, default: today},
     // views: Number
-    bloopers:[
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Blooper"
-        }
-    ] //array of blooper ids that are connected to this video
 });
 
 module.exports = mongoose.model("Video", videoSchema);
