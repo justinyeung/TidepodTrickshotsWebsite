@@ -20,9 +20,10 @@
     <!-- font awesome -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" />
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-
+    
     <title>Tidepod Trickshots Official Website</title>
 </head>
 <body>
@@ -78,15 +79,21 @@
             <nav class="navbar navbar-expand-sm navbar-light bg-light">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="/">Tidepod Trickshots</a>
-                    <button type="button" id="sidebarCollapse" class="btn btn-white">
-                        <i class="fas fa-list"></i>
-                        <span>Menu</span>
-                    </button>
+                    
                     
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Subscribe</a>
+                                <button type="button" class="btn btn-white" data-toggle="modal" data-target="#subscribeModal">
+                                    <i class="fab fa-snapchat-ghost"></i>
+                                    <span>Subscribe</span>
+                                </button>
+                            </li>
+                            <li class="nav-item">
+                                <button type="button" id="sidebarCollapse" class="btn btn-white">
+                                    <i class="fas fa-list"></i>
+                                    <span>Menu</span>
+                                </button>
                             </li>
                         </ul>
                     </div>
@@ -95,6 +102,22 @@
         </div>
     </div>
     
+    <!-- Modal -->
+    <div class="modal fade" id="subscribeModal" tabindex="-1" role="dialog" aria-labelledby="subscribeModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="subscribeModalLabel">Subscribe to Tidepod Trickshots</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Add Justin Yeung on Snapchat
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="overlay"></div>
     <div class="container" id="margin-jumbotron"></div>
     <!-- jquery, popper, bootstrap -->
