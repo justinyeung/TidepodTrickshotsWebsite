@@ -3,7 +3,31 @@
   height:60px;
 }
 
-/* landing page image */
+/* sign up modal */
+.form-group{
+  text-align:center;
+  
+}
+#email-input{
+  height:40px;
+  width:300px;
+  border-radius:5px;
+  border:2px solid black;
+  padding:1rem;
+  vertical-align:bottom;
+}
+#email-input:focus{
+  outline:none;
+}
+#email-button{
+  height:40px;
+  vertical-align:bottom;
+}
+.fa-user-plus{
+  margin-right:0.5rem;
+}
+
+/* landing page */
 .item-1{
   background: #16222A;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #16222A, #3A6073);  /* Chrome 10-25, Safari 5.1-6 */
@@ -51,6 +75,9 @@
 .carousel-item{
   border:0.1px solid black;
 }
+.fa-play{
+  margin-right:0.5rem;
+}
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) { 
@@ -87,7 +114,6 @@
   padding-left:0;
   padding-right:0;
 }
-/* hover over episode */
 .episode-container{
   border: 1px solid white;
 }
@@ -100,6 +126,7 @@
   height: 50vh;
   padding:0;
 }
+
 /* navbar */
 .navbar{
   margin-top: 0;
@@ -156,28 +183,5 @@
 }
 .nav-link:hover{
   color:black;
-}
-
-/* login page */
-.login{
-  padding:3rem;
-  margin-top: 5rem;
-  box-shadow: 0 0 50px 20px rgba(0,0,0,.3);
-  font-family: 'Open Sans', sans-serif;
-  font-weight:700;
-}
-.info-section{
-  padding:2rem;
-}
-.submit-button{
-  margin-top:10rem;
-  border:solid black 1px;
-}
-.login-text{
-  font-family: 'Open Sans', sans-serif;
-  font-weight:bold;
-}
-.white{
-  background-color:white;
 }
 
