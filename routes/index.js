@@ -1,19 +1,23 @@
 var express = require("express"),
-router = express.Router();
+router = express.Router(),
+Subscriber = require("../models/subscriber");
 
 // root route
 router.get("/", function(req, res){
     res.render("../views/landing.ejs")
 });
 
-// Log in
-router.get("/login", function(req, res){
-    res.render("../views/login.ejs");
-});
-
 // Sign Up
-router.get("/signup", function(req, res){
-    res.render("../views/signup.ejs");
+router.post("/signup", function(req, res){
+    var newSubscriber = {email: req.body.email};
+    Subscriber.create(newSubscriber, function(err, newlyCreated){
+        if(err){
+            console.log(err);
+        }else{
+            console.log(newlyCreated);
+            res.redirect("/");
+        }
+    })
 });
 
 
