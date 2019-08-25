@@ -56,7 +56,7 @@ app.use(bloopersRoutes);
 app.use(indexRoutes);
 
 // Starts the server
-var port = process.env.PORT || 3000
+var port = process.env.PORT || 5000
 app.listen(port, function(){
     console.log("Tidepod Trickshots server is running on " + port);
 });

@@ -58,11 +58,4 @@ function isLoggedIn(req, res, next){
     res.redirect("/login");
 }
 
-
-// // Sign Up
-// router.get("/signup", function(req, res){
-//     res.render("../views/signup.ejs");
-// });
-
-
 module.exports = router;
