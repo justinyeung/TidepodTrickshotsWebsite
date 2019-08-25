@@ -6,24 +6,28 @@
 /* sign up modal */
 .form-group{
   text-align:center;
-  
 }
 #email-input{
   height:40px;
-  width:300px;
+  width:100%;
   border-radius:5px;
   border:2px solid black;
   padding:1rem;
-  vertical-align:bottom;
 }
 #email-input:focus{
   outline:none;
 }
 #email-button{
   height:40px;
-  vertical-align:bottom;
+  margin-top:0.5rem;
+}
+.subscribe-description{
+  margin-left:0.5rem;
 }
 .fa-user-plus{
+  margin-right:0.5rem;
+}
+.fa-check-square{
   margin-right:0.5rem;
 }
 
