@@ -27,6 +27,10 @@ var url = process.env.DATABASEURL || "mongodb://localhost:27017/tidepodtrickshot
 console.log(url);
 mongoose.connect(url, {useNewUrlParser: true});
 
+//seeding the database
+var seedDB = require("./seed");
+// seedDB();
+
 //connect the stylesheet
 app.use(express.static(__dirname + "/public")); // __dirname gives us the directory path we are in
 
