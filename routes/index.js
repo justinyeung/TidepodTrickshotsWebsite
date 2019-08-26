@@ -9,35 +9,35 @@ router.get("/", function(req, res){
 });
 
 //show register form
-router.get("/register", function(req, res){
-    res.render("../views/register.ejs");
-});
+// router.get("/register", function(req, res){
+//     res.render("../views/register.ejs");
+// });
 
 //handle sign up logic
-router.post("/register", function(req, res){
-    var newUser = new User({username: req.body.username});
-    User.register(newUser, req.body.password, function(err, user){
-        if(err){
-            console.log(err);
-            res.render("../views/register.ejs");
-        }
-        //logs them in after being successful
-        passport.authenticate("local")(req, res, function(){
-            res.redirect("/episodes");
-        })
-    });
-});
+// router.post("/register", function(req, res){
+//     var newUser = new User({username: req.body.username});
+//     User.register(newUser, req.body.password, function(err, user){
+//         if(err){
+//             console.log(err);
+//             res.render("../views/register.ejs");
+//         }
+//         //logs them in after being successful
+//         passport.authenticate("local")(req, res, function(){
+//             res.redirect("/episodes");
+//         })
+//     });
+// });
 
 // Log in
 router.get("/login", function(req, res){
-    res.render("../views/login.ejs");
+    res.render("../views/admin/login.ejs");
 });
 
 //handling login logic
 router.post("/login", passport.authenticate("local", 
 {
     //middleware
-    successRedirect: "/episodes",
+    successRedirect: "/admin",
     failureRedirect: "/login"
 }), function(req, res){
     res.send("Login logic");
@@ -47,6 +47,16 @@ router.post("/login", passport.authenticate("local",
 router.get("/logout", function(req, res){
     req.logout();
     res.redirect("/");
+})
+
+// new route - form to add new video
+router.get("/new", isLoggedIn, function(req, res){
+    res.render("../views/admin/new.ejs");
+});
+
+// admin page
+router.get("/admin", function(req, res){
+    res.render("../views/admin/index.ejs");
 })
 
 //middleware

@@ -29,11 +29,6 @@ router.get("/episodes/:id", function(req, res){
     });
 });
 
-// new route - form to add new video
-router.get("/new", function(req, res){
-    res.render("../views/new.ejs");
-});
-
 // create route - post a new video
 router.post("/videos", isLoggedIn, function(req, res){
     var video = req.body.video;
