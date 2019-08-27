@@ -35,6 +35,6 @@ app.use(bloopersRoutes);
 app.use(indexRoutes);
 
 // Starts the server
-app.listen(3000, function(){
+app.listen(5000, function(){
     console.log("Tidepod Trickshots server is running");
 });
