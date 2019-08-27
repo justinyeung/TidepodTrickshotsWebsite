@@ -22,6 +22,7 @@
     <!-- font awesome -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE=" crossorigin="anonymous" />
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     
@@ -69,7 +70,7 @@
                     <a href="#">Follow Us</a>
                 </li>
                 <li>
-                    <a href="#">Subscribe</a>
+                    <a href="" data-toggle="modal" data-target="#subscribeModal">Subscribe</a>
                 </li>
                 <li>
                     <a href="/admin">Admin</a>
@@ -88,8 +89,16 @@
                         <span>Menu</span>
                     </button>
                     
+                    
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <button type="button" class="btn btn-white" data-toggle="modal" data-target="#subscribeModal">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>Subscribe</span>
+                                </button>
+                            </li>
+                        </ul>
                             <% if(currentUser){ %>
                                 <li class="nav-item">
                                     <a class="nav-link">Signed In As: <%= currentUser.username %></a>
@@ -107,16 +116,49 @@
                 </nav>
             </div>
         </div>
-        
-        <div class="overlay"></div>
-        <div class="container" id="margin-jumbotron"></div>
-        <!-- jquery, popper, bootstrap -->
-        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <!-- jQuery Custom Scroller CDN -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-        <!-- Script for the sidebar -->
-        <script type="text/javascript" src="/js/sidebar.js"></script>
-        <!-- My javascript file-->
-        <script type="text/javascript" src="/js/script.js"></script>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="subscribeModal" tabindex="-1" role="dialog" aria-labelledby="subscribeModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="subscribeModalLabel">Subscribe to Tidepod Trickshots</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="subscribe-description">
+                        <p><i class="fas fa-check-square"></i>Email Notifications</p>
+                        <p><i class="fas fa-check-square"></i>Personal Thank You Message</p>
+                        <p><i class="fas fa-check-square"></i>Exclusive Giveaways</p>
+                        <p><i class="fas fa-check-square"></i>Unsubscribe Anytime</p>
+                    </div>
+                    <form action="/signup" method="POST">
+                        <div class="form-group container">
+                            <div class="row">
+                                <input id="email-input" type="email" name="email" placeholder="E-mail" required autocomplete="off">
+                            </div>
+                            <div class="row justify-content-end">
+                                <button id="email-button" class="btn btn-secondary" type="submit"><i class="fas fa-user-plus"></i>Sign Up</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="overlay"></div>
+    <div class="container" id="margin-jumbotron"></div>
+    <!-- jquery, popper, bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- Script for the sidebar -->
+    <script type="text/javascript" src="/js/sidebar.js"></script>
+    <!-- My javascript file-->
+    <script type="text/javascript" src="/js/script.js"></script>
