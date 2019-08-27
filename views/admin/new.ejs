@@ -1,0 +1,44 @@
+<% include ../partials/header%>
+
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center">Create a New Post</h1>
+    </div>
+    <form action="/videos" method="POST">
+        <div class="form-group">
+            <p>Video Type</p>
+            <select autocomplete="off" class="form-control" name="video[videotype]">
+                <option></option>
+                <option>episode</option>
+                <option>blooper</option>
+                <option>vlog</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <p>Video Name</p>
+            <input autocomplete="off" type="text" class="form-control" name="video[name]">
+        </div>
+        <div class="form-group">
+            <p>Description</p>
+            <input autocomplete="off" class="form-control" type="text" name="video[description]">
+        </div>
+        <div class="form-group">
+            <p>Season Number</p>
+            <input autocomplete="off" class="form-control" type="number" name="video[seasonnum]">
+        </div>
+        <div class="form-group">
+            <p>Episode Number</p>
+            <input autocomplete="off" class="form-control" type="number" name="video[episodenum]">
+        </div>
+        <div class="form-group">
+            <p>Thumbnail Link</p>
+            <input autocomplete="off" class="form-control" type="text" name="video[thumbnail]">
+        </div>
+        <div class="form-group">
+            <button autocomplete="off" class="btn btn-lg btn-primary">Submit</button>
+        </div>
+        
+    </form>
+</div>
+
+<% include ../partials/footer%>

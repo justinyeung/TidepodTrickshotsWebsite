@@ -11,8 +11,7 @@
 
 <!-- loops through vlogs that were passed through tot his file -->
 <% vlogs.forEach(function(vlog){ %>
-    <div class="container">
-        <div class="container">
+        <div class="container episode-container">
             <a class="episode-link" href="/vlogs/<%= vlog._id %>">
                 <div class="row episode-row">
                     <!-- thumbnail -->
@@ -31,7 +30,6 @@
                 </div>
             </a>
         </div>
-    </div>
     
     <% }); %>
     

@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="/stylesheets/main.css">
     <!-- open sans font -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800&display=swap" rel="stylesheet">
+    <!-- nunito sans font -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,700,900&display=swap" rel="stylesheet">
     <!-- Lato font -->
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap" rel="stylesheet">
     <!-- Scrollbar Custom CSS -->
@@ -70,6 +72,9 @@
                 <li>
                     <a href="" data-toggle="modal" data-target="#subscribeModal">Subscribe</a>
                 </li>
+                <li>
+                    <a href="/admin">Admin</a>
+                </li>
             </ul>
         </nav>
         
@@ -94,9 +99,22 @@
                                 </button>
                             </li>
                         </ul>
+                            <% if(currentUser){ %>
+                                <li class="nav-item">
+                                    <a class="nav-link">Signed In As: <%= currentUser.username %></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/logout">Logout</a>
+                                </li>
+                                <% } %>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Subscribe</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            </nav>
+                </nav>
+            </div>
         </div>
     </div>
     
