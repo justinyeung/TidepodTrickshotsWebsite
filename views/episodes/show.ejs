@@ -16,8 +16,8 @@
                 <% const year = episode.uploaded.getYear() + 1900 %>
                 
                 <h1><%= episode.name %></h1>
-                <p id="description-info">Season <%= episode.season %>, Episode <%= episode.number %></p>
-                <p id="description-info"><%= months[episode.uploaded.getMonth()] %> <%= episode.uploaded.getDate() %>,  <%= year %></p>
+                <p id="description-info"><i class="fas fa-tv"></i>Season <%= episode.season %>, Episode <%= episode.number %></p>
+                <p id="description-info"><i class="fas fa-calendar-alt"></i><%= months[episode.uploaded.getMonth()] %> <%= episode.uploaded.getDate() %>,  <%= year %></p>
                 <p id="description-text"><%= episode.description %></p>
             </div>
         </div>

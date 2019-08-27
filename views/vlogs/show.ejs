@@ -16,7 +16,7 @@
                 <% const year = vlog.uploaded.getYear() + 1900 %>
                 
                 <h1><%= vlog.name %></h1>
-                <p id="description-info">asdf <%= vlog.number %></p>
+                <p id="description-info">Vlog #<%= vlog.number %></p>
                 <p id="description-info"><%= months[vlog.uploaded.getMonth()] %> <%= vlog.uploaded.getDate() %>,  <%= year %></p>
                 <p id="description-text"><%= vlog.description %></p>
             </div>

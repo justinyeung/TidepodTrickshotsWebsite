@@ -96,6 +96,9 @@
 .episode-container:hover{
   background-color: #e9ecef;
 }
+.episode-description{
+  font-size:1.2rem;
+}
 
 /* show page */
 .embed-responsive-9by16 {
@@ -119,6 +122,12 @@
 #description-text{
   font-size:1.5rem;
   margin-top:2rem;
+}
+.fa-calendar-alt{
+  margin-right:0.5rem;
+}
+.fa-tv{
+  margin-right:0.5rem;
 }
 
 /* navbar */
@@ -157,6 +166,9 @@
 }
 .description p{
   margin:0.2rem;
+}
+.description .episode-description{
+  margin-top:1rem;
 }
 .image-box img{
   width:100%;

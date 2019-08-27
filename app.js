@@ -3,13 +3,15 @@
 // npm install mongoose --save
 // npm install express-session --save
 // npm install passport passport-local passport-local-mongoose --save
+// npm install method-override --save
 
 var express = require("express"),
 app = express(),
 bodyParser = require("body-parser"),
 mongoose = require("mongoose"),
 passport = require("passport"),
-LocalStrategy = require("passport-local");
+LocalStrategy = require("passport-local"),
+methodOverride = require("method-override");
 
 // RESTFUL ROUTES
 //requiring routes and models
@@ -17,6 +19,7 @@ var episodesRoutes = require("./routes/content/episodes"),
 vlogsRoutes = require("./routes/content/vlogs"),
 bloopersRoutes = require("./routes/content/bloopers"),
 indexRoutes = require("./routes/index"),
+adminRoutes = require("./routes/content/admin"),
 User = require("./models/user");
 
 //use body parser
@@ -33,6 +36,9 @@ var seedDB = require("./seed");
 
 //connect the stylesheet
 app.use(express.static(__dirname + "/public")); // __dirname gives us the directory path we are in
+
+// use method override for put route
+app.use(methodOverride("_method"));
 
 //Passport configuration
 app.use(require("express-session")({
@@ -58,6 +64,7 @@ app.use(episodesRoutes);
 app.use(vlogsRoutes);
 app.use(bloopersRoutes);
 app.use(indexRoutes);
+app.use(adminRoutes);
 
 // Starts the server
 var port = process.env.PORT || 5000

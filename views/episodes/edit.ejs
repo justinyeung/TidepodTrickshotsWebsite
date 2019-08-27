@@ -1,0 +1,50 @@
+<% include ../partials/header%>
+
+<div class="container" id="jumbotron-container">
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Edit <%= episode.name %></h1>
+        </div>
+    </div>
+</div>
+
+<!-- Edit form -->
+<div class="container">
+    <form action="/episodes/<%= episode._id %>?_method=PUT" method="POST">
+        <div class="form-group">
+            <p>Video Type</p>
+            <select autocomplete="off" class="form-control" name="episode[videoType]">
+                    <option></option>
+                    <option selected="selected">episode</option>
+                    <option>blooper</option>
+                    <option>vlog</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <p>Episode Name</p>
+            <input autocomplete="off" type="text" class="form-control" name="episode[name]" value="<%= episode.name %>">
+        </div>
+        <div class="form-group">
+            <p>Description</p>
+            <input autocomplete="off" class="form-control" type="text" name="episode[description]" value="<%= episode.description %>">
+        </div>
+        <div class="form-group">
+            <p>Season Number</p>
+            <input autocomplete="off" class="form-control" type="number" name="episode[season]" value="<%= episode.season %>">
+        </div>
+        <div class="form-group">
+            <p>Episode Number</p>
+            <input autocomplete="off" class="form-control" type="number" name="episode[number]" value="<%= episode.number %>">
+        </div>
+        <div class="form-group">
+            <p>Thumbnail Link</p>
+            <input autocomplete="off" class="form-control" type="text" name="episode[thumbnail]" value="<%= episode.thumbnail %>">
+        </div>
+        <div class="form-group">
+            <button autocomplete="off" class="btn btn-lg btn-primary">Submit</button>
+        </div>
+        
+    </form>
+</div>
+
+<% include ../partials/footer%>

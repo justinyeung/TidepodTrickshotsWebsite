@@ -29,26 +29,29 @@ router.get("/episodes/:id", function(req, res){
     });
 });
 
-// create route - post a new video
-router.post("/videos", isLoggedIn, function(req, res){
-    var video = req.body.video;
-    var newVideo = {
-        videoType: video.videotype,
-        name: video.name,
-        season: video.seasonnum,
-        number: video.episodenum,
-        thumbnail: video.thumbnail,
-        description: video.description
-    }
-    
-    Video.create(newVideo, function(err, newlyCreated){
+
+// Edit route - get to edit page from show page
+router.get("/episodes/:id/edit", isLoggedIn, function(req, res){
+    Video.findById(req.params.id, function(err, specificEpisode){
         if(err){
             console.log(err);
         }else{
-            // go to page with all episodes
-            res.redirect("/episodes");
+            res.render("../views/episodes/edit.ejs", {episode: specificEpisode});
         }
-    })
+    });
+});
+
+// Update route
+router.put("/episodes/:id", function(req, res){
+    // find and update the correct city
+    Video.findByIdAndUpdate(req.params.id, req.body.episode, function(err, updatedEpisode){
+        if(err){
+            res.redirect("/episodes/" + req.params.id + "/edit");
+        }else{
+            console.log(updatedEpisode);
+            res.redirect("/episodes/" + req.params.id);
+        }
+    });
 });
 
 //middleware

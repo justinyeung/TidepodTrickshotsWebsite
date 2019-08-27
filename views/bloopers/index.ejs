@@ -26,9 +26,7 @@
                     <h2> <%= blooper.name %> </h2>
                     <p>From Season <%= blooper.season %>, Episode <%= blooper.number %></p>
                     <p><%= months[blooper.uploaded.getMonth()] %> <%= blooper.uploaded.getDate() %>,  <%= year %></p>
-                    
-                    <p> <%= blooper.videoType %> </p>
-                    <p> <%= blooper.description %> </p>
+                    <p class="episode-description"> <%= blooper.description %> </p>
                 </div>
             </div>
         </a>
