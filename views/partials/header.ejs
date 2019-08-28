@@ -92,13 +92,6 @@
                     
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <button type="button" class="btn btn-white" data-toggle="modal" data-target="#subscribeModal">
-                                    <i class="fas fa-envelope"></i>
-                                    <span>Subscribe</span>
-                                </button>
-                            </li>
-                        </ul>
                             <% if(currentUser){ %>
                                 <li class="nav-item">
                                     <a class="nav-link">Signed In As: <%= currentUser.username %></a>
@@ -108,7 +101,10 @@
                                 </li>
                                 <% } %>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Subscribe</a>
+                                    <button type="button" class="btn btn-white" data-toggle="modal" data-target="#subscribeModal">
+                                        <i class="fas fa-envelope"></i>
+                                        <span>Subscribe</span>
+                                    </button>
                                 </li>
                             </ul>
                         </div>
@@ -162,3 +158,4 @@
     <script type="text/javascript" src="/js/sidebar.js"></script>
     <!-- My javascript file-->
     <script type="text/javascript" src="/js/script.js"></script>
+    
