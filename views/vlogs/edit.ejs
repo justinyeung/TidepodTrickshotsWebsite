@@ -1,0 +1,46 @@
+<% include ../partials/header%>
+
+<div class="container" id="jumbotron-container">
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Edit <%= vlog.name %></h1>
+        </div>
+    </div>
+</div>
+
+<!-- Edit form -->
+<div class="container">
+    <form action="/vlogs/<%= vlog._id %>?_method=PUT" method="POST">
+        <div class="form-group">
+            <p>Video Type</p>
+            <select autocomplete="off" class="form-control" name="vlog[videoType]">
+                    <option></option>
+                    <option>episode</option>
+                    <option>blooper</option>
+                    <option selected="selected">vlog</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <p>vlog Name</p>
+            <input autocomplete="off" type="text" class="form-control" name="vlog[name]" value="<%= vlog.name %>">
+        </div>
+        <div class="form-group">
+            <p>Description</p>
+            <input autocomplete="off" class="form-control" type="text" name="vlog[description]" value="<%= vlog.description %>">
+        </div>
+        <div class="form-group">
+            <p>vlog Number</p>
+            <input autocomplete="off" class="form-control" type="number" name="vlog[number]" value="<%= vlog.number %>">
+        </div>
+        <div class="form-group">
+            <p>Thumbnail Link</p>
+            <input autocomplete="off" class="form-control" type="text" name="vlog[thumbnail]" value="<%= vlog.thumbnail %>">
+        </div>
+        <div class="form-group">
+            <button autocomplete="off" class="btn btn-lg btn-primary">Submit</button>
+        </div>
+        
+    </form>
+</div>
+
+<% include ../partials/footer%>

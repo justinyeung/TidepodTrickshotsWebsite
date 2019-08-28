@@ -19,6 +19,10 @@
                 <p id="description-info">Season <%= blooper.season %></p>
                 <p id="description-info"><%= months[blooper.uploaded.getMonth()] %> <%= blooper.uploaded.getDate() %>,  <%= year %></p>
                 <p id="description-text"><%= blooper.description %></p>
+                <% if(currentUser){ %>
+                    <a class="show-link" href="/bloopers/<%=blooper._id%>/edit"><p id="description-info"><i class="fas fa-edit show-icon"></i>Edit Episode</p></a>
+                    <a class="show-link" href=""><p id="description-info"><i class="fas fa-trash show-icon"></i>Delete Episode</p></a>
+                <% } %>
             </div>
         </div>
         

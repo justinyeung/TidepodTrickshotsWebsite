@@ -42,14 +42,24 @@ router.get("/episodes/:id/edit", isLoggedIn, function(req, res){
 });
 
 // Update route
-router.put("/episodes/:id", function(req, res){
+router.put("/episodes/:id", isLoggedIn, function(req, res){
     // find and update the correct city
     Video.findByIdAndUpdate(req.params.id, req.body.episode, function(err, updatedEpisode){
         if(err){
             res.redirect("/episodes/" + req.params.id + "/edit");
         }else{
-            console.log(updatedEpisode);
             res.redirect("/episodes/" + req.params.id);
+        }
+    });
+});
+
+// Destroy route
+router.delete("/episodes/:id", isLoggedIn, function(req, res){
+    Video.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            res.redirect("/episodes/:id");
+        }else{
+            res.redirect("/episodes");
         }
     });
 });

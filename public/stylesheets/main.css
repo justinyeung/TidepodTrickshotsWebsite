@@ -123,11 +123,14 @@
   font-size:1.5rem;
   margin-top:2rem;
 }
-.fa-calendar-alt{
+.show-icon{
   margin-right:0.5rem;
 }
-.fa-tv{
-  margin-right:0.5rem;
+.show-link{
+  color:black;
+}
+.show-link:hover{
+  color:grey;
 }
 
 /* navbar */

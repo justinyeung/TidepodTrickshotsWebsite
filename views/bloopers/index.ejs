@@ -24,7 +24,7 @@
                 <div class="col-12 col-lg-8 description">
                     <% const year = blooper.uploaded.getYear() + 1900 %>
                     <h2> <%= blooper.name %> </h2>
-                    <p>From Season <%= blooper.season %>, Episode <%= blooper.number %></p>
+                    <p>Season <%= blooper.season %>, Blooper #<%= blooper.number %></p>
                     <p><%= months[blooper.uploaded.getMonth()] %> <%= blooper.uploaded.getDate() %>,  <%= year %></p>
                     <p class="episode-description"> <%= blooper.description %> </p>
                 </div>
