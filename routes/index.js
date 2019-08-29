@@ -49,16 +49,6 @@ router.get("/logout", function(req, res){
     res.redirect("/");
 })
 
-// new route - form to add new video
-router.get("/new", isLoggedIn, function(req, res){
-    res.render("../views/admin/new.ejs");
-});
-
-// admin page
-router.get("/admin", function(req, res){
-    res.render("../views/admin/index.ejs");
-})
-
 //middleware
 //add this to parameters if login is required for that route
 function isLoggedIn(req, res, next){
