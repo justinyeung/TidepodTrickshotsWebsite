@@ -29,7 +29,6 @@ router.get("/episodes/:id", function(req, res){
     });
 });
 
-
 // Edit route - get to edit page from show page
 router.get("/episodes/:id/edit", isLoggedIn, function(req, res){
     Video.findById(req.params.id, function(err, specificEpisode){

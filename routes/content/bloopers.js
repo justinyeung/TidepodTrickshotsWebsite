@@ -28,7 +28,6 @@ router.get("/bloopers/:id", function(req, res){
     });
 });
 
-
 // Edit route - get to edit page from show page
 router.get("/bloopers/:id/edit", isLoggedIn, function(req, res){
     Video.findById(req.params.id, function(err, specificblooper){
@@ -48,6 +47,17 @@ router.put("/bloopers/:id", isLoggedIn, function(req, res){
             res.redirect("/bloopers/" + req.params.id + "/edit");
         }else{
             res.redirect("/bloopers/" + req.params.id);
+        }
+    });
+});
+
+// Destroy route
+router.delete("/bloopers/:id", isLoggedIn, function(req, res){
+    Video.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            res.redirect("/bloopers/:id");
+        }else{
+            res.redirect("/bloopers");
         }
     });
 });

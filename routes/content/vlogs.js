@@ -28,7 +28,6 @@ router.get("/vlogs/:id", function(req, res){
     });
 });
 
-
 // Edit route - get to edit page from show page
 router.get("/vlogs/:id/edit", isLoggedIn, function(req, res){
     Video.findById(req.params.id, function(err, specificvlog){
@@ -48,6 +47,17 @@ router.put("/vlogs/:id", isLoggedIn, function(req, res){
             res.redirect("/vlogs/" + req.params.id + "/edit");
         }else{
             res.redirect("/vlogs/" + req.params.id);
+        }
+    });
+});
+
+// Destroy route
+router.delete("/vlogs/:id", isLoggedIn, function(req, res){
+    Video.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            res.redirect("/vlogs/:id");
+        }else{
+            res.redirect("/vlogs");
         }
     });
 });
