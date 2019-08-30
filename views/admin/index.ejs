@@ -22,15 +22,21 @@
                 <h1>Tidepod Trickshots Administration Centre</h1>
             </div>
             <div class="container episode-container">
-                <a class="episode-link" href="/new">
+                <a class="episode-link" href="/admin/new">
                     <div class="row episode-row">
-                        <h1><i class="fas fa-upload"></i>Upload a New Video</h1>
+                        <h1><i class="fas fa-upload show-icon"></i>Upload a New Video</h1>
                     </div>
                 </div>
-            </a>
+                <div class="container episode-container">
+                    <a class="episode-link" href="/admin/email">
+                        <div class="row episode-row">
+                            <h1><i class="fas fa-envelope show-icon"></i>View Email List</h1>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
-    </div>
-    <% } %>
-    
-    
-    <% include ../partials/footer %>
+        <% } %>
+        
+        
+        <% include ../partials/footer %>

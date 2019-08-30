@@ -20,7 +20,7 @@ router.get("/episodes", function(req, res){
 // show route (watch the episode)
 router.get("/episodes/:id", function(req, res){
     // Find episode and blooper for episode with id
-    Video.findById(req.params.id).populate("bloopers").exec(function(err, specificEpisode){
+    Video.findById(req.params.id, function(err, specificEpisode){
         if(err){
             console.log(err);
         }else{

@@ -1,6 +1,19 @@
 var express = require("express");
 var router = express.Router();
-User = require("../../models/user");
+Video = require("../../models/video");
+Subscriber = require("../../models/subscriber");
+
+// emails
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const msg = {
+    to: 'justingcyeung@gmail.com',
+    from: 'Tidepod Trickshots',
+    subject: 'Welcome to Tidepod Trickshots',
+    text: 'Thank You for Subscribing to Tidepod Trickshots',
+    html: '<strong>Testing html field</strong>',
+};
+
 
 // admin page
 router.get("/admin", function(req, res){
@@ -8,7 +21,7 @@ router.get("/admin", function(req, res){
 })
 
 // new route - form to add new video
-router.get("/new", isLoggedIn, function(req, res){
+router.get("/admin/new", isLoggedIn, function(req, res){
     res.render("../views/admin/new.ejs");
 });
 
@@ -31,7 +44,36 @@ router.post("/videos", isLoggedIn, function(req, res){
             // go to page with all episodes
             res.redirect("/episodes");
         }
+    });
+});
+
+// subscribe
+router.post("/signup", function(req, res){
+    var newSubscriber = {email: req.body.email};
+    Subscriber.create(newSubscriber, function(err, newlyCreated){
+        if(err){
+            console.log(err);
+        }else{
+            console.log(newlyCreated);
+            res.redirect("/");
+
+            // send email to confirm subscription
+            // msg.to = newSubscriber.email;
+            // sgMail.send(msg);
+        }
     })
+});	
+
+// email list
+router.get("/admin/email", isLoggedIn, function(req, res){
+    Subscriber.find(function(err, allSubscribers){
+        if(err){
+            console.log(err);
+        }else{
+            // passes through episodes to index.ejs
+            res.render("../views/admin/email.ejs", {subscribers: allSubscribers});
+        }
+    });
 });
 
 //middleware
