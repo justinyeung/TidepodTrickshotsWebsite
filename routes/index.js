@@ -8,26 +8,6 @@ router.get("/", function(req, res){
     res.render("../views/landing.ejs")
 });
 
-//show register form
-// router.get("/register", function(req, res){
-//     res.render("../views/register.ejs");
-// });
-
-//handle sign up logic
-// router.post("/register", function(req, res){
-//     var newUser = new User({username: req.body.username});
-//     User.register(newUser, req.body.password, function(err, user){
-//         if(err){
-//             console.log(err);
-//             res.render("../views/register.ejs");
-//         }
-//         //logs them in after being successful
-//         passport.authenticate("local")(req, res, function(){
-//             res.redirect("/episodes");
-//         })
-//     });
-// });
-
 // Log in
 router.get("/login", function(req, res){
     res.render("../views/admin/login.ejs");
