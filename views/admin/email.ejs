@@ -1,0 +1,10 @@
+<% include ../partials/header %>
+
+<% subscribers.forEach(subscriber => { %>
+    <div class="container episode-container">
+        <p><%= subscriber.email %></p>
+    </div>
+    
+    <% }) %>
+    
+    <% include ../partials/footer %>

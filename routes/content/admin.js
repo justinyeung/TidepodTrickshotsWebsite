@@ -3,18 +3,6 @@ var router = express.Router();
 Video = require("../../models/video");
 Subscriber = require("../../models/subscriber");
 
-// emails
-const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-const msg = {
-    to: 'justingcyeung@gmail.com',
-    from: 'Tidepod Trickshots',
-    subject: 'Welcome to Tidepod Trickshots',
-    text: 'Thank You for Subscribing to Tidepod Trickshots',
-    html: '<strong>Testing html field</strong>',
-};
-
-
 // admin page
 router.get("/admin", function(req, res){
     res.render("../views/admin/index.ejs");
@@ -56,10 +44,6 @@ router.post("/signup", function(req, res){
         }else{
             console.log(newlyCreated);
             res.redirect("/");
-
-            // send email to confirm subscription
-            // msg.to = newSubscriber.email;
-            // sgMail.send(msg);
         }
     })
 });	
