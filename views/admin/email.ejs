@@ -1,0 +1,20 @@
+<% include ../partials/header %>
+
+<div class="container" id="jumbotron-container">
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Email List</h1>
+        </div>
+    </div>
+</div>
+
+<% subscribers.forEach(subscriber => { %>
+    <div class="container episode-container">
+        <p><%= subscriber %></p>
+        <form id="delete" action="/email/<%= subscriber %>?_method=DELETE" method="POST">
+            <a class="show-link" href="javascript:{}" onclick="document.getElementById('delete').submit();"><p id="description-info"><i class="fas fa-trash show-icon"></i>Unsubscribe</p></a>
+        </form>
+    </div>
+    <% }) %>
+    
+    <% include ../partials/footer %>

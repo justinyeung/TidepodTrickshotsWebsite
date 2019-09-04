@@ -21,7 +21,7 @@
 .subscribe-description{
   margin-left:0.5rem;
 }
-.fa-user-plus{
+.subscribe-button{
   margin-right:0.5rem;
 }
 .fa-check-square{
@@ -228,6 +228,3 @@
 }
 
 /* admin */
-.fa-upload{
-  margin-right: 1rem;
-}
