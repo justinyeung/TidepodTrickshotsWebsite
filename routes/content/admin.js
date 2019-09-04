@@ -74,6 +74,26 @@ router.delete("/email/:name", isLoggedIn, function(req, res){
     })
 })
 
+//show register form
+router.get("/register", isLoggedIn, function(req, res){
+    res.render("../views/admin/register.ejs");
+});
+
+// Register
+router.post("/register", isLoggedIn, function(req, res){
+    var newUser = new User({username: req.body.username});
+    User.register(newUser, req.body.password, function(err, user){
+        if(err){
+            console.log(err);
+            res.render("../views/admin/index.ejs");
+        }
+        //logs them in after being successful
+        passport.authenticate("local")(req, res, function(){
+            res.redirect("/");
+        })
+    });
+});
+
 //middleware
 //add this to parameters if login is required for that route
 function isLoggedIn(req, res, next){
