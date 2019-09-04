@@ -63,13 +63,13 @@ router.get("/admin/email", isLoggedIn, function(req, res){
     });
 });
 
-// unsubscribe
+// unsubscribe button
 router.delete("/email/:name", isLoggedIn, function(req, res){
     Subscriber.deleteMany({email: req.params.name}, function(err){
         if(err){
             console.log(err);
         }else{
-            res.redirect("/admin/email")
+            res.redirect("/admin/email");
         }
     })
 })
