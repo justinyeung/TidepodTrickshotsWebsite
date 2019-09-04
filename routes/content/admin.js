@@ -63,6 +63,17 @@ router.get("/admin/email", isLoggedIn, function(req, res){
     });
 });
 
+// unsubscribe
+router.delete("/email/:name", isLoggedIn, function(req, res){
+    Subscriber.deleteMany({email: req.params.name}, function(err){
+        if(err){
+            console.log(err);
+        }else{
+            res.redirect("/admin/email")
+        }
+    })
+})
+
 //middleware
 //add this to parameters if login is required for that route
 function isLoggedIn(req, res, next){
