@@ -54,8 +54,11 @@ router.get("/admin/email", isLoggedIn, function(req, res){
         if(err){
             console.log(err);
         }else{
+            let nodup = new Set(allSubscribers.map(item => item.email));
+            let emails = nodup.values();
+            let emailsArr = Array.from(emails);
             // passes through episodes to index.ejs
-            res.render("../views/admin/email.ejs", {subscribers: allSubscribers});
+            res.render("../views/admin/email.ejs", {subscribers: emailsArr});
         }
     });
 });

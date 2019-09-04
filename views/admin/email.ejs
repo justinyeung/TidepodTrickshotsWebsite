@@ -1,10 +1,17 @@
 <% include ../partials/header %>
 
+<div class="container" id="jumbotron-container">
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Email List</h1>
+        </div>
+    </div>
+</div>
+
 <% subscribers.forEach(subscriber => { %>
     <div class="container episode-container">
-        <p><%= subscriber.email %></p>
+        <p><%= subscriber %></p>
     </div>
-    
     <% }) %>
     
     <% include ../partials/footer %>
