@@ -11,9 +11,6 @@
 <% subscribers.forEach(subscriber => { %>
     <div class="container episode-container">
         <p><%= subscriber %></p>
-        <!-- <form id="delete" action="/email/<%= subscriber %>?_method=DELETE" method="POST">
-            <a class="show-link" href="javascript:{}" onclick="document.getElementById('delete').submit();"><p id="description-info"><i class="fas fa-trash show-icon"></i>Unsubscribe</p></a>
-        </form> -->
     </div>
     <% }) %>
     
