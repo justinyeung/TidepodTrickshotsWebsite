@@ -65,18 +65,6 @@ router.get("/admin/email", isLoggedIn, function(req, res){
     });
 });
 
-// unsubscribe button
-// router.delete("/email/:name", isLoggedIn, function(req, res){
-//     console.log(req.params.name);
-//     Subscriber.deleteMany({email: req.params.name}, function(err){
-//         if(err){
-//             console.log(err);
-//         }else{
-//             res.redirect("/admin/email");
-//         }
-//     })
-// })
-
 //show register form
 router.get("/register", isLoggedIn, function(req, res){
     res.render("../views/admin/register.ejs");

@@ -27,6 +27,10 @@
 .fa-check-square{
   margin-right:0.5rem;
 }
+#unsubscribe-link{
+  color: black;
+  font-size: 0.9rem;
+}
 
 /* landing page */
 .item-1{
@@ -221,10 +225,3 @@
 .nav-link:hover{
   color:black;
 }
-
-/* login page */
-.login-container{
-  width:60%;
-}
-
-/* admin */
