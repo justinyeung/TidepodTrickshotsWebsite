@@ -45,6 +45,10 @@ router.delete("/unsubscribe", function(req, res){
     })
 })
 
+router.get("/followus", function(req, res){
+    res.render("../views/followus.ejs");
+})
+
 //middleware
 //add this to parameters if login is required for that route
 function isLoggedIn(req, res, next){
