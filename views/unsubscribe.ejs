@@ -1,0 +1,25 @@
+<% include ./partials/header %>
+
+<div class="container" id="jumbotron-container">
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Unsubscribe</h1>
+            <h2>We are so sad to see you go!</h2>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <form action="/unsubscribe/?_method=DELETE" method="POST">
+        <div class="form-group container">
+            <div class="row">
+                <input id="email-input" type="email" name="email" placeholder="E-mail" required autocomplete="off">
+            </div>
+            <div class="row">
+                <button id="email-button" class="btn btn-secondary" type="submit"><i class="fas fa-user-minus subscribe-button"></i>Unsubscribe</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<% include ./partials/footer %>

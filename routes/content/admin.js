@@ -2,6 +2,8 @@ var express = require("express");
 var router = express.Router();
 var passport = require("passport");
 User = require("../../models/user");
+Video = require("../../models/video");
+Subscriber = require("../../models/subscriber");
 
 // admin page
 router.get("/admin", function(req, res){
@@ -9,7 +11,7 @@ router.get("/admin", function(req, res){
 })
 
 // new route - form to add new video
-router.get("/new", isLoggedIn, function(req, res){
+router.get("/admin/new", isLoggedIn, function(req, res){
     res.render("../views/admin/new.ejs");
 });
 
@@ -32,8 +34,48 @@ router.post("/videos", isLoggedIn, function(req, res){
             // go to page with all episodes
             res.redirect("/episodes");
         }
-    })
+    });
 });
+
+// subscribe
+router.post("/signup", function(req, res){
+    var newSubscriber = {email: req.body.email};
+    Subscriber.create(newSubscriber, function(err, newlyCreated){
+        if(err){
+            console.log(err);
+        }else{
+            console.log(newlyCreated);
+            res.redirect("/");
+        }
+    })
+});	
+
+// email list
+router.get("/admin/email", isLoggedIn, function(req, res){
+    Subscriber.find(function(err, allSubscribers){
+        if(err){
+            console.log(err);
+        }else{
+            let nodup = new Set(allSubscribers.map(item => item.email));
+            let emails = nodup.values();
+            let emailsArr = Array.from(emails);
+            // passes through episodes to index.ejs
+            res.render("../views/admin/email.ejs", {subscribers: emailsArr});
+        }
+    });
+});
+
+// unsubscribe button
+// router.delete("/email/:name", isLoggedIn, function(req, res){
+//     console.log(req.params.name);
+//     Subscriber.deleteMany({email: req.params.name}, function(err){
+//         if(err){
+//             console.log(err);
+//         }else{
+//             res.redirect("/admin/email");
+//         }
+//     })
+// })
 
 //show register form
 router.get("/register", isLoggedIn, function(req, res){
