@@ -92,10 +92,12 @@
   .carousel-item h2{
     font-size: 1.4rem;
   }
+  .show-description h1{
+    font-size:3rem;
+  }
 }
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) { 
-  
+@media (min-width: 768px) {
  }
 
 /* Large devices (desktops, 992px and up) */
@@ -106,11 +108,13 @@
   .carousel-item h2{
     font-size: 1.5rem;
   }
+  .show-description h1{
+    font-size:5rem;
+  }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
-  
  }
 
 
@@ -145,7 +149,6 @@
 }
 .show-description h1{
   font-weight:900;
-  font-size:5rem;
   margin-bottom:0.5rem;
 }
 #description-info{
@@ -163,6 +166,9 @@
 }
 .show-link:hover{
   color:grey;
+}
+.show-title{
+  font-size:1rem;
 }
 
 /* navbar */
@@ -185,7 +191,6 @@
   color: black;
   display: block;
 }
-
 
 /* episodes page */
 .episode-row{
@@ -224,4 +229,16 @@
 }
 .nav-link:hover{
   color:black;
+}
+
+/* follow us page */
+.follow-icon{
+  margin-right:0.5rem;
+}
+.followus-container{
+  padding-top:2rem;
+}
+.followus-name{
+  padding-bottom:1.5rem;
+  padding-left: 1.5rem;
 }
