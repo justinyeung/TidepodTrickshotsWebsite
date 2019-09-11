@@ -45,8 +45,14 @@ router.delete("/unsubscribe", function(req, res){
     })
 })
 
+// follow us page
 router.get("/followus", function(req, res){
     res.render("../views/followus.ejs");
+})
+
+// faq page
+router.get("/faq", function(req, res){
+    res.render("../views/faq.ejs");
 })
 
 //middleware
