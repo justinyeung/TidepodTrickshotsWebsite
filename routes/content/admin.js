@@ -23,6 +23,7 @@ router.post("/videos", isLoggedIn, function(req, res){
         name: video.name,
         season: video.seasonnum,
         number: video.episodenum,
+        url: video.url,
         thumbnail: video.thumbnail,
         description: video.description
     }

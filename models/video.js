@@ -9,7 +9,7 @@ var videoSchema = new mongoose.Schema({
     season: {type: Number, default: 1},
     number: {type: Number, default: 1},
     thumbnail: {type: String, default: "https://cdn.wallpapersafari.com/76/19/oTkiJr.jpg"},
-    // url: String,
+    url: String,
     description: {type: String, default: "New Episode out today!"},
     uploaded: {type: Object, default: today},
     // views: Number
