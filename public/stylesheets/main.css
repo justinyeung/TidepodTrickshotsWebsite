@@ -244,3 +244,12 @@
 }
 
 /* faq */
+.question{
+  padding-left:1rem;
+  font-size:2rem;
+}
+.answer{
+  padding-left:2.5rem;
+  padding-bottom:2rem;
+  font-size: 1.5rem;
+}
