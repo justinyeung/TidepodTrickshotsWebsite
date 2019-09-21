@@ -94,8 +94,8 @@
 }
 .landing-row{
   padding:2rem;
-  padding-left:4rem;
-  padding-right:4rem;
+  padding-left:2rem;
+  padding-right:2rem;
 }
 hr{
   border:0.5px solid black;
@@ -120,6 +120,7 @@ hr{
   .show-description h1{
     font-size:3rem;
   }
+  
 }
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
@@ -135,6 +136,11 @@ hr{
   }
   .show-description h1{
     font-size:5rem;
+  }
+  .landing-row{
+    padding:2rem;
+    padding-left:4rem;
+    padding-right:4rem;
   }
 }
 
@@ -262,6 +268,7 @@ hr{
 }
 .followus-container{
   padding-top:2rem;
+  padding-bottom:2rem;
 }
 .followus-name{
   padding-bottom:1.5rem;
@@ -273,6 +280,9 @@ hr{
 }
 .socialmedia-link{
   padding:5%
+}
+.line-about{
+  width:50%;
 }
 
 /* faq */
