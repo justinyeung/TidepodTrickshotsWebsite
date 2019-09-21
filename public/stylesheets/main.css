@@ -83,6 +83,31 @@
 .fa-play{
   margin-right:0.5rem;
 }
+.landing-boxes{
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.landing-boxes h1{
+  font-weight: bold;
+}
+.landing-boxes p{
+  font-size:1.5rem;
+}
+.landing-row{
+  padding:2rem;
+  padding-left:4rem;
+  padding-right:4rem;
+}
+hr{
+  border:0.5px solid black;
+  width:90%;
+}
+.landing-image{
+  width:100%;
+  padding:0;
+}
+.form-landing{
+  padding-top:2rem;
+}
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) { 
