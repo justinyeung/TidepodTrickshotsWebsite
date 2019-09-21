@@ -55,6 +55,11 @@ router.get("/faq", function(req, res){
     res.render("../views/faq.ejs");
 })
 
+// learn about us page
+router.get("/learnaboutus", function(req, res){
+    res.render("../views/learnaboutus.ejs");
+})
+
 //middleware
 //add this to parameters if login is required for that route
 function isLoggedIn(req, res, next){
