@@ -45,6 +45,11 @@ router.delete("/unsubscribe", function(req, res){
     })
 })
 
+// Coronavirus page
+router.get("/covid19update", function(req, res){
+    res.render("../views/corona.ejs");
+})
+
 // follow us page
 router.get("/followus", function(req, res){
     res.render("../views/followus.ejs");
