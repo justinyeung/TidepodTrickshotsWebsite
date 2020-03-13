@@ -295,3 +295,10 @@ hr{
   padding-bottom:2rem;
   font-size: 1.5rem;
 }
+
+/* coronavirus page */
+.coronalogo{
+  padding-bottom:1rem;
+  width:154px;
+  height:112px;
+}
