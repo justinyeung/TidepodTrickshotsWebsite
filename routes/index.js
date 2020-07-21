@@ -3,75 +3,89 @@ var router = express.Router();
 var passport = require("passport");
 User = require("../models/user");
 
-// root route
-router.get("/", function(req, res){
-    res.render("../views/landing.ejs")
-});
-
-// Log in
-router.get("/login", function(req, res){
+/**
+ * Route to Landing page
+ */
+router.get("/", function (req, res) {
+    res.render("../views/landing.ejs");
+  });
+  
+  /**
+   * Route to Login page
+   */
+  router.get("/login", function (req, res) {
     res.render("../views/admin/login.ejs");
-});
+  });
+  
+  /**
+   * Route to unsubscribe page
+   */
+  router.get("/unsubscribe", function (req, res) {
+    res.render("../views/unsubscribe.ejs");
+  });
+  
+  /**
+   * Route to coronavirus page
+   */
+  router.get("/covid19update", function (req, res) {
+    res.render("../views/corona.ejs");
+  });
+  
+  /**
+   * Route to follow us page
+   */
+  router.get("/followus", function (req, res) {
+    res.render("../views/followus.ejs");
+  });
+  
+  /**
+   * Route to faq us page
+   */
+  router.get("/faq", function (req, res) {
+    res.render("../views/faq.ejs");
+  });
+  
+  /**
+   * Route to learn about us page
+   */
+  router.get("/learnaboutus", function (req, res) {
+    res.render("../views/learnaboutus.ejs");
+  });
 
-//handling login logic
-router.post("/login", passport.authenticate("local", 
-{
+/**
+ * Log in
+ */
+router.post(
+  "/login",
+  passport.authenticate("local", {
     //middleware
     successRedirect: "/admin",
-    failureRedirect: "/login"
-}), function(req, res){
+    failureRedirect: "/login",
+  }),
+  function (req, res) {
     res.send("Login logic");
+  }
+);
+
+/**
+ * Logout
+ */
+router.get("/logout", function (req, res) {
+  req.logout();
+  res.redirect("/");
 });
 
-//logic route
-router.get("/logout", function(req, res){
-    req.logout();
-    res.redirect("/");
-})
-
-// unsubscribe page
-router.get("/unsubscribe", function(req, res){
-    res.render("../views/unsubscribe.ejs");
-})
-
-// unsubscribe form
-router.delete("/unsubscribe", function(req, res){
-    Subscriber.deleteMany({email: req.body.email}, function(err){
-        if(err){
-            console.log(err);
-        }else{
-            res.redirect("/");
-        }
-    })
-})
-
-// Coronavirus page
-router.get("/covid19update", function(req, res){
-    res.render("../views/corona.ejs");
-})
-
-// follow us page
-router.get("/followus", function(req, res){
-    res.render("../views/followus.ejs");
-})
-
-// faq page
-router.get("/faq", function(req, res){
-    res.render("../views/faq.ejs");
-})
-
-// learn about us page
-router.get("/learnaboutus", function(req, res){
-    res.render("../views/learnaboutus.ejs");
-})
-
-//middleware
-//add this to parameters if login is required for that route
-function isLoggedIn(req, res, next){
-    if(req.isAuthenticated()){
-        return next();
+/**
+ * Unsubscribe
+ */
+router.delete("/unsubscribe", function (req, res) {
+  Subscriber.deleteMany({ email: req.body.email }, function (err) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect("/");
     }
-    res.redirect("/login");
-}
+  });
+});
 
 module.exports = router;
