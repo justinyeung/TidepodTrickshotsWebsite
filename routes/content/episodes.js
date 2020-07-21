@@ -1,25 +1,25 @@
 var express = require("express"),
 router = express.Router(),
-//requires the video schema for episode
 Video = require("../../models/video");
 
-// index route (shows all the episodes)
+/**
+ * Index route - shows all episodes
+ */
 router.get("/episodes", function(req, res){
-    //queries database for only episodes
     Video.find({videoType: "episode"}, function(err, allEpisodes){
         if(err){
             console.log(err);
         }else{
-            // passes through episodes to index.ejs
             res.render("../views/episodes/index.ejs", {episodes: allEpisodes});
         }
     })
     
 });
 
-// show route (watch the episode)
+/**
+ * Show route - watch specific episode
+ */
 router.get("/episodes/:id", function(req, res){
-    // Find episode and blooper for episode with id
     Video.findById(req.params.id, function(err, specificEpisode){
         if(err){
             console.log(err);
@@ -29,7 +29,9 @@ router.get("/episodes/:id", function(req, res){
     });
 });
 
-// Edit route - get to edit page from show page
+/**
+ * Edit route - get to edit page from show page
+ */
 router.get("/episodes/:id/edit", isLoggedIn, function(req, res){
     Video.findById(req.params.id, function(err, specificEpisode){
         if(err){
@@ -40,9 +42,10 @@ router.get("/episodes/:id/edit", isLoggedIn, function(req, res){
     });
 });
 
-// Update route
+/**
+ * Update episode
+ */
 router.put("/episodes/:id", isLoggedIn, function(req, res){
-    // find and update the correct city
     Video.findByIdAndUpdate(req.params.id, req.body.episode, function(err, updatedEpisode){
         if(err){
             res.redirect("/episodes/" + req.params.id + "/edit");
@@ -52,7 +55,9 @@ router.put("/episodes/:id", isLoggedIn, function(req, res){
     });
 });
 
-// Destroy route
+/**
+ * Delete Episode
+ */
 router.delete("/episodes/:id", isLoggedIn, function(req, res){
     Video.findByIdAndRemove(req.params.id, function(err){
         if(err){
@@ -64,7 +69,6 @@ router.delete("/episodes/:id", isLoggedIn, function(req, res){
 });
 
 //middleware
-//add this to parameters if login is required for that route
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();

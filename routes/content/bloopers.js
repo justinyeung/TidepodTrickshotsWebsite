@@ -1,23 +1,24 @@
 var express = require("express"),
 router = express.Router(),
-//requires the video schema for blooper
 Video = require("../../models/video");
 
-// index route (shows all the bloopers)
+/**
+ * Index route - shows all bloopers
+ */
 router.get("/bloopers", function(req, res){
-    //queries database for only bloopers
     Video.find({videoType: "blooper"}, function(err, allBloopers){
         if(err){
             console.log(err);
         }else{
-            // passes through bloopers to index.ejs
             res.render("../views/bloopers/index.ejs", {bloopers: allBloopers});
         }
     })
     
 });
 
-// show route (watch the blooper)
+/**
+ * Show route - watch specific blooper
+ */
 router.get("/bloopers/:id", function(req, res){
     Video.findById(req.params.id, function(err, specificBlooper){
         if(err){
@@ -28,7 +29,9 @@ router.get("/bloopers/:id", function(req, res){
     });
 });
 
-// Edit route - get to edit page from show page
+/**
+ * Edit route - get to edit page from show page
+ */
 router.get("/bloopers/:id/edit", isLoggedIn, function(req, res){
     Video.findById(req.params.id, function(err, specificblooper){
         if(err){
@@ -39,9 +42,10 @@ router.get("/bloopers/:id/edit", isLoggedIn, function(req, res){
     });
 });
 
-// Update route
+/**
+ * Update Blooper
+ */
 router.put("/bloopers/:id", isLoggedIn, function(req, res){
-    // find and update the correct city
     Video.findByIdAndUpdate(req.params.id, req.body.blooper, function(err, updatedblooper){
         if(err){
             res.redirect("/bloopers/" + req.params.id + "/edit");
@@ -51,7 +55,9 @@ router.put("/bloopers/:id", isLoggedIn, function(req, res){
     });
 });
 
-// Destroy route
+/**
+ * Delete Blooper
+ */
 router.delete("/bloopers/:id", isLoggedIn, function(req, res){
     Video.findByIdAndRemove(req.params.id, function(err){
         if(err){
@@ -63,7 +69,6 @@ router.delete("/bloopers/:id", isLoggedIn, function(req, res){
 });
 
 //middleware
-//add this to parameters if login is required for that route
 function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){
         return next();
